@@ -1,0 +1,12 @@
+.appTitle {
+  margin: .75em 0;
+  text-transform: uppercase;
+}
+
+h1.appTitle {
+  font-size: 2.1875em;
+}
+
+h2.appTitle {
+  font-size: 2em;
+}

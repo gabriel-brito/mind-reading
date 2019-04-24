@@ -1,14 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
+import EleventhContent from './components/EleventhContent';
 
-import HelloWorld from './components/hello-world';
+class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      isInstructions: true
+    }
 
+    this.goOn = () => {
+      this.setState({ isInstructions: false })
+    }
+  }
 
-function App() {
-  return (
-    <div className="App">
-      <HelloWorld />
-    </div>
-  );
+  render() {
+    return <EleventhContent
+      goOn={this.goOn}
+      isInstructions={this.state.isInstructions}
+   />
+  }
 }
 
 export default App;

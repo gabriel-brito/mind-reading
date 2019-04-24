@@ -1,0 +1,11 @@
+button.instructionsButton {
+  background-color: transparent;
+  border: .1875rem solid;
+  color: #ffffff;
+  display: block;
+  font-size: 1.5em;
+  font-weight: 700;
+  margin: 1.875rem auto;
+  padding: .4375rem 1.875rem;
+  text-transform: uppercase;
+}
