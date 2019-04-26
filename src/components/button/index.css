@@ -9,3 +9,16 @@ button.instructionsButton {
   padding: .4375rem 1.875rem;
   text-transform: uppercase;
 }
+
+button.trickRow__Button {
+  background-color: transparent;
+  border-radius: .25rem;
+  border: .125rem solid;
+  color: #FFFFFF;
+  display: block;
+  font-size: 1.5em;
+  font-weight: 500;
+  height: 3.125rem;
+  margin: 0 auto;
+  width: 90%;
+}

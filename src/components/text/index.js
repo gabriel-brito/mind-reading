@@ -14,14 +14,17 @@ const DisplayedText = ({ step }) => (
   step && 
     <p className='appText'>
       {step === 'instructions' ? instructions : ''}
-      {step === 'firstStep' ? firstStep : ''}
-      {step === 'secondStep' ? secondStep : ''}
-      {step === 'lastStep' ? lastStep : ''}
+      {step === 1 ? firstStep : ''}
+      {step === 2 ? secondStep : ''}
+      {step === 3 ? lastStep : ''}
     </p>
 );
 
 DisplayedText.propTypes = {
-  step: PropTypes.string.isRequired
+  step: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]).isRequired
 }
 
 export default DisplayedText;

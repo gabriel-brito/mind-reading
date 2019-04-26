@@ -9,6 +9,10 @@ const Title = ({ weight, text }) => (
     : <h2 className='appTitle'>{text}</h2>
 );
 
+Title.defaultProps = {
+  weight: 1
+}
+
 Title.propTypes = {
   text: PropTypes.string.isRequired,
   weight: PropTypes.oneOf([1, 2]).isRequired
