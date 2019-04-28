@@ -4,20 +4,17 @@ import Card from '../card';
 
 import './index.css';
 
-const TrickRow = ({ value }) => (
+const TrickRow = ({ cards, value }) => (
   <div className='trickRow'>
 
     <Button cssStyle='trickRow__Button' action={() => console.log('here')}>
       {value}
     </Button>
 
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
+    {cards.map((item, index) => (
+      <Card image={item.image} key={index} index={index} />
+    ))}
+
   </div>
 );
 

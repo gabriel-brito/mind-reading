@@ -2,11 +2,11 @@ import React from 'react';
 
 import './index.css';
 
-const Card = () => (
+const Card = ({ image, suit, value }) => (
   <div className='card'>
     <img 
-      src='https://deckofcardsapi.com/static/img/AC.png' 
-      alt='just to have'
+      src={image}
+      alt={`${value} of ${suit}`}
     />
   </div>
 );

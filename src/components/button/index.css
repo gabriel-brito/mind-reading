@@ -22,3 +22,7 @@ button.trickRow__Button {
   margin: 0 auto;
   width: 90%;
 }
+
+button:hover {
+  cursor: pointer;
+}
