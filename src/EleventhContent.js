@@ -6,11 +6,13 @@ import ChosenCard from './modules/chosen-card';
 const EleventhContent = ({ 
   appName,
   cards,
+  chosenCard,
   chooseRow,
   goOn,
   isChosenCard,
   isInstructions, 
-  isTrick, 
+  isTrick,
+  tryAgain,
   step
 }) => (
   <div className='wrapper'>
@@ -26,7 +28,7 @@ const EleventhContent = ({
       />
     }
 
-    {isChosenCard && <ChosenCard />}
+    {isChosenCard && <ChosenCard chosenCard={chosenCard} tryAgain={tryAgain}/>}
   </div>
 );
 

@@ -23,43 +23,69 @@ class App extends Component {
     }
 
     this.chooseRow = (index) => {
-      let step = this.state.step;
       let cards = this.state.cards;
       let newCardsOrder = stepOrder(orderArrayTreatment(cards, index));
+      let step = this.state.step;
 
       if ( step === 3 ) this.chosenCard(newCardsOrder[1][3]);
 
-      this.setState({ step: step += 1, cards: newCardsOrder });
+      this.setState({ cards: newCardsOrder, step: step += 1 });
     }
 
     this.chosenCard = (chosenCard) => {
-      const { image, value, suit } = chosenCard;
+      const { image, suit, value } = chosenCard;
+      
       this.setState({ 
-        isTrick: false, 
-        isChosenCard: true, 
         chosenCard: {
           image,
-          value,
-          suit
-        } 
+          suit,
+          value
+        },
+        isTrick: false, 
+        isChosenCard: true, 
       });
+    }
+
+    this.tryAgain = () => {
+      const cards = this.state.cards;
+
+      this.setState({ 
+        cards: stepOrder(orderArrayTreatment(cards)), 
+        isChosenCard: false, 
+        isTrick: true,
+        step: 1
+      });
+
     }
   }
 
   async componentDidMount() {
-    const { deck_id } = await getCardsConfig(getCardsConfigURL);
-    let { cards } = await getDeck(deck_id);
-    cards = orderArrayTreatment(cards);
-    this.setState({ cards, deck_id });
+    let cards;
+
+    if(!localStorage.getItem('cards')) {
+      const { deck_id } = await getCardsConfig(getCardsConfigURL);
+      let { cards } = await getDeck(deck_id);
+      cards = orderArrayTreatment(cards);
+      
+      localStorage.setItem('cards', JSON.stringify(cards));
+      
+      this.setState({ 
+        cards, 
+        deck_id 
+      });
+
+    } else {
+
+    }
   }
 
 
   render() {
     return <EleventhContent
       {...this.state}
-
-      goOn={this.goOn}
       chooseRow={this.chooseRow}
+      goOn={this.goOn}
+      tryAgain={this.tryAgain}
    />
   }
 }

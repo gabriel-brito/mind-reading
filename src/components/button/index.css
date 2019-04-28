@@ -1,4 +1,5 @@
-button.instructionsButton {
+button.instructionsButton,
+button.chosenCard__button{
   background-color: transparent;
   border: .1875rem solid;
   color: #ffffff;
