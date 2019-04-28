@@ -1,13 +1,14 @@
 import React from 'react';
 import Instructions from './modules/instructions';
 import Trick from './modules/trick';
+import ChosenCard from './modules/chosen-card';
 
 const EleventhContent = ({ 
   appName,
   cards,
-  cardsRow,
   chooseRow,
-  goOn, 
+  goOn,
+  isChosenCard,
   isInstructions, 
   isTrick, 
   step
@@ -24,6 +25,8 @@ const EleventhContent = ({
         step={step} 
       />
     }
+
+    {isChosenCard && <ChosenCard />}
   </div>
 );
 

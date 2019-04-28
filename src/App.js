@@ -10,10 +10,11 @@ class App extends Component {
     this.state = {
       appName: 'Mind-reading card Trick',
       cards: '',
+      chosenCard: {},
       deck_id: '',
+      isChosenCard: false,
       isInstructions: true,
       isTrick: false,
-      rowIndex: 0,
       step: 'instructions'
     }
 
@@ -26,11 +27,22 @@ class App extends Component {
       let cards = this.state.cards;
       let newCardsOrder = stepOrder(orderArrayTreatment(cards, index));
 
-      if ( step === 3 ){
-        console.log(newCardsOrder[1][3].image)
-      }
+      if ( step === 3 ) this.chosenCard(newCardsOrder[1][3]);
 
       this.setState({ step: step += 1, cards: newCardsOrder });
+    }
+
+    this.chosenCard = (chosenCard) => {
+      const { image, value, suit } = chosenCard;
+      this.setState({ 
+        isTrick: false, 
+        isChosenCard: true, 
+        chosenCard: {
+          image,
+          value,
+          suit
+        } 
+      });
     }
   }
 
