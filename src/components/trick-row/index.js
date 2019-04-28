@@ -4,10 +4,12 @@ import Card from '../card';
 
 import './index.css';
 
-const TrickRow = ({ cards, value }) => (
+const TrickRow = ({ cards, chooseRow, value }) => (
   <div className='trickRow'>
 
-    <Button cssStyle='trickRow__Button' action={() => console.log('here')}>
+    <Button 
+      cssStyle='trickRow__Button' 
+      action={() => {chooseRow(value -1)}}>
       {value}
     </Button>
 

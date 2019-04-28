@@ -5,15 +5,25 @@ import Trick from './modules/trick';
 const EleventhContent = ({ 
   appName,
   cards,
+  cardsRow,
+  chooseRow,
+  goOn, 
   isInstructions, 
   isTrick, 
-  goOn, 
-  step 
+  step
 }) => (
   <div className='wrapper'>
     {isInstructions 
       && <Instructions appName={appName} goOn={goOn} step={step}/>}
-    {isTrick && <Trick appName={appName} step={step} cards={cards}/>}
+    
+    {isTrick && 
+      <Trick 
+        appName={appName} 
+        cards={cards}
+        chooseRow={chooseRow}
+        step={step} 
+      />
+    }
   </div>
 );
 

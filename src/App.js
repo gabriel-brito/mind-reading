@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import EleventhContent from './EleventhContent';
 import { getCardsConfigURL } from './utils/urls';
 import { getCardsConfig, getDeck } from './services/get-cards';
-import arrayTreament from './utils/array-treatment';
+import { orderArrayTreatment, stepOrder } from './utils/order-array-treatment';
 
 class App extends Component {
   constructor() {
@@ -13,6 +13,7 @@ class App extends Component {
       deck_id: '',
       isInstructions: true,
       isTrick: false,
+      rowIndex: 0,
       step: 'instructions'
     }
 
@@ -20,38 +21,33 @@ class App extends Component {
       this.setState({ isInstructions: false, isTrick: true, step: 1 })
     }
 
-    // this.cacheCards = (arrayOfObjects) => {
-    //   let newArray = [];
-    //   let counter = 0;
-    //   let insideCounter = 0;
+    this.chooseRow = (index) => {
+      let step = this.state.step;
+      let cards = this.state.cards;
+      let newCardsOrder = stepOrder(orderArrayTreatment(cards, index));
 
-    //   for(counter; counter < arrayOfObjects.length; counter++) {
-    //     for(insideCounter; 
-    //       insideCounter < arrayOfObjects[counter].length;
-    //       insideCounter++) {
-    //       newArray.push(
-    //         JSON.stringify(arrayOfObjects[counter][insideCounter])
-    //       );
-    //     }
-    //   }
+      if ( step === 3 ){
+        console.log(newCardsOrder[1][3].image)
+      }
 
-    //   localStorage.setItem('cards', newArray);
-    // }
+      this.setState({ step: step += 1, cards: newCardsOrder });
+    }
   }
 
   async componentDidMount() {
     const { deck_id } = await getCardsConfig(getCardsConfigURL);
     let { cards } = await getDeck(deck_id);
-    cards = arrayTreament(cards);
+    cards = orderArrayTreatment(cards);
     this.setState({ cards, deck_id });
-    //this.cacheCards(cards);
   }
+
 
   render() {
     return <EleventhContent
       {...this.state}
 
       goOn={this.goOn}
+      chooseRow={this.chooseRow}
    />
   }
 }
