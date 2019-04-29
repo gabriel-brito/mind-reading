@@ -1,3 +1,7 @@
+button {
+  transition: ease .2s;
+}
+
 button.instructionsButton,
 button.chosenCard__button{
   background-color: transparent;
@@ -26,4 +30,34 @@ button.trickRow__Button {
 
 button:hover {
   cursor: pointer;
+}
+
+@media all and (min-width: 768px) {
+  button.instructionsButton,
+  button.chosenCard__button{
+    font-size: 2em;
+    width: 16.25rem;
+  }
+  
+  button.instructionsButton:hover,
+  button.chosenCard__button:hover,
+  button.trickRow__Button:hover {
+    background-color: #FFFFFF;
+    border-color: #FFFFFF;
+    color: #121212;
+  }
+
+  button.trickRow__Button {
+    font-weight: 700;
+    height: 4.6875rem;
+    margin: auto 1rem auto auto;
+    width: 11.25rem;
+  }
+
+}
+
+@media all and (min-width: 1200px) {
+  button.trickRow__Button {
+    width: 9.25rem;
+  }
 }

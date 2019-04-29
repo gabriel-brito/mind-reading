@@ -10,3 +10,19 @@ h1.appTitle {
 h2.appTitle {
   font-size: 2em;
 }
+
+@media all and (min-width: 768px) {
+  h1.appTitle {
+    font-size: 4em;
+  }
+
+  h2.appTitle {
+    font-size: 3em;
+  }
+}
+
+@media all and (min-width: 1200px) {
+  h1.appTitle {
+    margin: 10px auto;
+  }
+}

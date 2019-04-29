@@ -8,3 +8,10 @@
   height: 100%;
   width: 100%;
 }
+
+@media all and (min-width: 768px) {
+  .card {
+    margin: .3125rem;
+    min-height: auto;
+  }
+}

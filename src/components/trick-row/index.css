@@ -4,3 +4,19 @@
   width: 31%;
   margin: auto 1%;
 }
+
+@media all and (min-width: 768px) {
+  .trickRow {
+    display: flex;
+    float: initial;
+    margin: .9rem auto;
+    width: auto;
+  }
+}
+
+@media all and (min-width: 1200px) {
+  .trickRow {
+    margin: 0 auto .1875rem;
+    max-height: 11.875rem;
+  }
+}

@@ -4,3 +4,16 @@
   margin: .75em 0;
   text-align: justify;
 }
+
+@media all and (min-width: 768px) {
+  .appText {
+    font-size: 1.375em;
+    text-align: center;
+  }
+}
+
+@media all and (min-width: 1200px) {
+  .appText {
+    font-size: 1.15em;
+  }
+}

@@ -5,3 +5,10 @@
   margin: 1.5rem auto;
   width: 100%;
 }
+
+@media all and (min-width: 768px) {
+  .trickWrapper {
+    flex-direction: column;
+    overflow: hidden;
+  }
+}

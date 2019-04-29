@@ -4,7 +4,7 @@ import Button from '../../components/button';
 
 const ChosenCard = ({ chosenCard, tryAgain }) => (
   <section className='chosenCard'>
-    <Title text='And your card is...' />
+    <Title text='And your card is...' weight={2} />
     <img
       className='chosenCard__image'
       src={chosenCard.image} 
