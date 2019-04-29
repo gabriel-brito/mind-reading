@@ -7,8 +7,8 @@ const ChosenCard = ({ chosenCard, tryAgain }) => (
     <Title text='And your card is...' weight={2} />
     <img
       className='chosenCard__image'
-      src={chosenCard.image} 
-      alt={`${chosenCard.value} of ${chosenCard.suit}`} 
+      src={chosenCard.image}
+      alt={`${chosenCard.value} of ${chosenCard.suit}`}
     />
     <Button cssStyle='chosenCard__button' action={tryAgain}>
       Try again

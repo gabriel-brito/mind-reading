@@ -4,10 +4,7 @@ import './index.css';
 
 const Card = ({ image, suit, value }) => (
   <div className='card'>
-    <img 
-      src={image}
-      alt={`${value} of ${suit}`}
-    />
+    <img src={image} alt={`${value} of ${suit}`} />
   </div>
 );
 

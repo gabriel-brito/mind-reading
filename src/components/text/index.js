@@ -10,21 +10,18 @@ const secondStep = `Now, click on the row that the card you've previously chosen
 
 const lastStep = `One last time! Click on the row on which your card is.`;
 
-const DisplayedText = ({ step }) => (
-  step && 
+const DisplayedText = ({ step }) =>
+  step && (
     <p className='appText'>
       {step === 'instructions' ? instructions : ''}
       {step === 1 ? firstStep : ''}
       {step === 2 ? secondStep : ''}
       {step === 3 ? lastStep : ''}
     </p>
-);
+  );
 
 DisplayedText.propTypes = {
-  step: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number
-  ]).isRequired
-}
+  step: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired
+};
 
 export default DisplayedText;

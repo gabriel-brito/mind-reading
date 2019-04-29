@@ -9,19 +9,19 @@ import './index.css';
 const Trick = ({ appName, cards, chooseRow, isLoading, step }) => (
   <main>
     <Title text={appName} />
-    <DisplayedText step={step}/>
+    <DisplayedText step={step} />
     <section className='trickWrapper'>
-      
       {isLoading && <Loader />}
 
-      {!isLoading && cards.map((items, index) => (
-        <TrickRow 
-          chooseRow={chooseRow} 
-          cards={items}
-          value={index + 1} 
-          key={index}
-        />
-      ))}
+      {!isLoading &&
+        cards.map((items, index) => (
+          <TrickRow
+            chooseRow={chooseRow}
+            cards={items}
+            value={index + 1}
+            key={index}
+          />
+        ))}
     </section>
   </main>
 );

@@ -3,7 +3,7 @@ import Instructions from './modules/instructions';
 import Trick from './modules/trick';
 import ChosenCard from './modules/chosen-card';
 
-const EleventhContent = ({ 
+const EleventhContent = ({
   appName,
   cards,
   chosenCard,
@@ -17,20 +17,21 @@ const EleventhContent = ({
   step
 }) => (
   <div className='wrapper'>
-    {isInstructions 
-      && <Instructions appName={appName} goOn={goOn} step={step}/>}
-    
-    {isTrick && 
-      <Trick 
-        appName={appName} 
+    {isInstructions && (
+      <Instructions appName={appName} goOn={goOn} step={step} />
+    )}
+
+    {isTrick && (
+      <Trick
+        appName={appName}
         cards={cards}
         chooseRow={chooseRow}
         isLoading={isLoading}
-        step={step} 
+        step={step}
       />
-    }
+    )}
 
-    {isChosenCard && <ChosenCard chosenCard={chosenCard} tryAgain={tryAgain}/>}
+    {isChosenCard && <ChosenCard chosenCard={chosenCard} tryAgain={tryAgain} />}
   </div>
 );
 
