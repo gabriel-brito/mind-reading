@@ -3,8 +3,7 @@
 I can read your mind. Doubt of me? So try it!
 
 <figure>
-    <img src="./github/github-image.jpeg" alt="Deck cards" />
-    <figcaption>Lily, Rosemary, and the Ace of Spades - Jack Hamilton (Unsplash)</figcaption>
+    <img style="display:block; width: 500px; margin: 0 auto;" src="./github/github-image.jpeg" alt="Lily, Rosemary, and the Ace of Spades - Jack Hamilton (Unsplash)" />
 </figure>
 
 > This project is created with create-react-app. To know more about it, [click here](https://facebook.github.io/create-react-app/docs/getting-started)!
