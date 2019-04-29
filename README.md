@@ -1,5 +1,4 @@
 # Eleventh Card - Mind Trick
----
 I can read your mind. Doubt of me? So try it!
 
 <figure>
@@ -9,7 +8,6 @@ I can read your mind. Doubt of me? So try it!
 > This project is created with create-react-app. To know more about it, [click here](https://facebook.github.io/create-react-app/docs/getting-started)!
 
 ## What's on this project:
----
 * ReactJS
 * Vanilla Javascript
 * Pure CSS
@@ -17,13 +15,11 @@ I can read your mind. Doubt of me? So try it!
 * Chai
 
 ## I've been using patterns to make a clean code structure:
----
 * Create-React-App
 * An adaptation of BEM (Block, Element, Modifier)
 * TDD with Jest and Chai
 
 ## How to run it:
----
 ##### It's simple! Follow the instructions bellow:
 First of all, you need to clone this repo with:
 
