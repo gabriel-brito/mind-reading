@@ -48,37 +48,38 @@ class App extends Component {
 
     this.tryAgain = () => {
       const cards = this.state.cards;
-
       this.setState({ 
         cards: stepOrder(orderArrayTreatment(cards)), 
         isChosenCard: false, 
         isTrick: true,
         step: 1
       });
-
     }
+
+    this.fillCards = async () => {
+      let isLocalStorageFilled = !!localStorage.getItem('cards');
+
+      if (!isLocalStorageFilled) {
+        const { deck_id } = await getCardsConfig(getCardsConfigURL);
+        let { cards } = await getDeck(deck_id);
+        cards = orderArrayTreatment(cards);
+        
+        localStorage.setItem('cards', JSON.stringify(cards));
+        
+        this.setState({ cards, deck_id });
+      } else {
+        let localStorageCards = JSON.parse(localStorage.getItem('cards')); 
+        localStorageCards = [...localStorageCards];
+
+        this.setState({ cards: localStorageCards });
+      }
+    }
+
   }
 
-  async componentDidMount() {
-    let cards;
-
-    if(!localStorage.getItem('cards')) {
-      const { deck_id } = await getCardsConfig(getCardsConfigURL);
-      let { cards } = await getDeck(deck_id);
-      cards = orderArrayTreatment(cards);
-      
-      localStorage.setItem('cards', JSON.stringify(cards));
-      
-      this.setState({ 
-        cards, 
-        deck_id 
-      });
-
-    } else {
-
-    }
+  componentDidMount() {
+    this.fillCards();
   }
-
 
   render() {
     return <EleventhContent
