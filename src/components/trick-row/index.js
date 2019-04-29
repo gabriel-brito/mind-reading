@@ -16,7 +16,13 @@ const TrickRow = ({ cards, chooseRow, value }) => (
     </Button>
 
     {cards.map((item, index) => (
-      <Card image={item.image} key={index} index={index} />
+      <Card
+        image={item.image}
+        value={item.value}
+        suit={item.suit}
+        key={index}
+        index={index}
+      />
     ))}
   </div>
 );
