@@ -10,7 +10,8 @@ const EleventhContent = ({
   chooseRow,
   goOn,
   isChosenCard,
-  isInstructions, 
+  isInstructions,
+  isLoading,
   isTrick,
   tryAgain,
   step
@@ -24,6 +25,7 @@ const EleventhContent = ({
         appName={appName} 
         cards={cards}
         chooseRow={chooseRow}
+        isLoading={isLoading}
         step={step} 
       />
     }

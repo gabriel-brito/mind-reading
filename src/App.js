@@ -14,12 +14,17 @@ class App extends Component {
       deck_id: '',
       isChosenCard: false,
       isInstructions: true,
+      isLoading: false,
       isTrick: false,
       step: 'instructions'
     }
 
     this.goOn = () => {
-      this.setState({ isInstructions: false, isTrick: true, step: 1 })
+      this.setState({ 
+        isInstructions: false,
+        isTrick: true, 
+        step: 1, 
+      });
     }
 
     this.chooseRow = (index) => {
@@ -58,6 +63,7 @@ class App extends Component {
 
     this.fillCards = async () => {
       let isLocalStorageFilled = !!localStorage.getItem('cards');
+      this.setState({ isLoading: true });
 
       if (!isLocalStorageFilled) {
         const { deck_id } = await getCardsConfig(getCardsConfigURL);
@@ -66,12 +72,12 @@ class App extends Component {
         
         localStorage.setItem('cards', JSON.stringify(cards));
         
-        this.setState({ cards, deck_id });
+        this.setState({ cards, deck_id, isLoading: false });
       } else {
         let localStorageCards = JSON.parse(localStorage.getItem('cards')); 
         localStorageCards = [...localStorageCards];
 
-        this.setState({ cards: localStorageCards });
+        this.setState({ cards: localStorageCards, isLoading: false });
       }
     }
 
